@@ -3,9 +3,12 @@
 import Vue from 'vue'
 import App from './App'
 import router from './router'
+import iView from 'iview'
 
 Vue.config.productionTip = false
 
+// 全局注册 iview 组件
+Vue.use(iView)
 /* eslint-disable no-new */
 new Vue({
   el: '#app',
