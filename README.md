@@ -10,3 +10,5 @@ style-loader、css-loader、less、less-loader、iview
 
 ### 全局注册了
 iview 组件
+
+代码合并测试
