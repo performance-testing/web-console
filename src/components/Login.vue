@@ -1,6 +1,8 @@
 <template>
   <div class="login">
-    {{ msg }}
+    <Input placeholder="Enter text" style="width: auto">
+      <Icon type="ios-search" slot="suffix" />
+    </Input>
   </div>
 </template>
 
@@ -9,14 +11,12 @@ export default {
   name: 'login',
   data () {
     return {
-      msg: '登录组件'
+      msg: '登录组件',
+      value1: ''
     }
   }
 }
 </script>
 
-<style lang="less">
-  .login {
-
-  }
+<style>
 </style>
