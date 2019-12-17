@@ -5,14 +5,14 @@
 </template>
 
 <script>
-  export default {
-    name: 'Register',
-    data () {
-      return {
-        msg: '注册'
-      }
+export default {
+  name: 'Register',
+  data () {
+    return {
+      msg: '注册'
     }
   }
+}
 </script>
 
 <style lang='less'>
