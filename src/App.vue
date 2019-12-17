@@ -1,14 +1,25 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
-  name: 'App'
+  name: 'App',
+
+  mouted () {
+    console.log('看看你是啥')
+    axios
+      .post('https://api.coindesk.com/v1/bpi/currentprice.json')
+      .then(res => {
+        console.log(res, '看看你是啥')
+      })
+  }
 }
+
 </script>
 
 <style>
@@ -18,6 +29,5 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>

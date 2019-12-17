@@ -84,12 +84,24 @@
 </template>
 
 <script>
+import axios from 'axios'
 export default {
   name: 'HelloWorld',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+      msg: 'lallala'
     }
+  },
+  created () {
+    console.log('看看你是啥')
+    axios
+      .post('http://rap2api.taobao.org/app/mock/239782/index/test')
+      .then(res => {
+        console.log(res, '看看你是啥')
+      })
+  },
+  mouted () {
+    console.log('看看你是啥')
   }
 }
 </script>
