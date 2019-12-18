@@ -72,8 +72,6 @@ export default {
 
 <style>
   .login{
-    width: 400px;
-    height: 500px;
     background-color:#fff;
   }
   .loginTitle{
