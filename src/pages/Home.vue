@@ -6,14 +6,15 @@
 
 <script>
 export default {
-  name: "Home",
+  name: 'Home',
   data () {
     return {
-      msg: "home 主页面"
+      msg: 'home 主页面'
     }
   }
 }
 </script>
 
 <style>
+  .home {  }
 </style>
