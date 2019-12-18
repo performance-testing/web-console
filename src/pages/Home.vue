@@ -1,6 +1,7 @@
 <template>
   <div class="home">
     {{ msg }}
+    <Login></Login>
   </div>
 </template>
 
