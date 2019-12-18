@@ -1,6 +1,6 @@
 <template>
   <div class="login-register">
-    <div class="bg2">
+    <!-- <div class="bg2">
       <div class="left">
         <div class="insertimage"></div>
         <div class="change" v-show="gologin">
@@ -22,12 +22,21 @@
       </div>
       <register class="right" v-show="gologin"></register>
       <login class="right" v-show="!gologin"></login>
-    </div>
+    </div> -->
+    <Row style="width: 50%; height: 50%; background: #fff; margin: 0 auto; border-radius: 10px;">
+      <i-col span="16" style="background: red; height: 100%;">
+          左边
+      </i-col>
+      <i-col span="8">
+          <login class="right" v-show="!gologin"></login>
+      </i-col>
+    </Row>
   </div>
 </template>
 <script>
 import login from '../components/Login'
 import register from '../components/Register'
+import bgImage from '@/assets/images/login-background-img.jpg'
 
 export default {
   name: 'Login-Register',
@@ -37,7 +46,8 @@ export default {
   data () {
     return {
       msg: '注册、登录页',
-      gologin: false
+      gologin: false,
+      bgImage
     }
   },
   methods: {
@@ -58,26 +68,31 @@ export default {
 
 <style>
   .login-register{
-    height: 720px;
-    width: 1520px;
-    background-repeat:no-repeat;
-    background:url("../assets/images/login-background-img.jpg");
+    height: 100%;
+    width: 100%;
+    background: url('../assets/images/login-background-img.jpg') no-repeat center;
+    display: flex;
+    align-items: center;
   }
   .bg2{
-    position: relative;
-    left:310px;
-    top:140px;
-    width: 900px;
+    width: 50%;
+    height: auto;
+    margin: 0 auto;
     background-color: white;
+    border-radius: 10px;
   }
   .left{
     float: left;
     height: 500px;
     width: 500px;
     background-color: white;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
   }
   .right{
     float: right;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
   }
   .insertimage{
     position: relative;
