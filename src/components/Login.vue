@@ -1,7 +1,47 @@
 <template>
   <div class="login">
     <div class="form">
-      <div class="input">
+      <span class="title">用户登录</span>
+      <Form ref="formValidate" :model="formValidate" :rules="ruleValidate" :label-width="0" style="margin-top: 20px">
+        <FormItem>
+          <Input class="input" v-model="formValidate.loginName" placeholder="请输入用户名">
+            <Icon type="ios-person-outline" slot="suffix"  size="25"/>
+          </Input>
+        </FormItem>
+        <FormItem>
+          <Input class="input" v-model="formValidate.password" placeholder="请输入密码">
+            <Icon type="ios-lock-outline" slot="suffix" size="25" />
+          </Input>
+        </FormItem>
+        <FormItem>
+          <Row>
+            <i-col span="8" style=" height: 100%; margin-left: 68px" >
+              <Input v-model="formValidate.password" placeholder="请输入验证码"></Input>
+            </i-col>
+            <i-col span="7" style="height: 100%; background-color: blue ;margin-left: 30px"  >
+              <img src="" width="100%" height="100%"  />
+            </i-col>
+          </Row>
+        </FormItem>
+        <FormItem>
+          <Row>
+          <i-col span="8" style=" height: 100%; margin-left: 47px" >
+            <Checkbox v-model="rememberNameFlag">记住用户名</Checkbox>
+          </i-col>
+          <i-col span="8" style="height: 100%;">
+            <Button @click="handlelogin('formValidate')" style="width: 140px;margin-left: 35px;background-color: #4d69f6;">
+              <span style="color: white" >登录</span>
+            </Button>
+          </i-col>
+          </Row>
+          <Row>
+            <i-col span="8" style="height: 100%; margin-left: 250px">
+              <span @click="findpassword" style="cursor:pointer;color:grey">找回密码</span>
+            </i-col>
+          </Row>
+        </FormItem>
+      </Form>
+<!--      <div class="input">
         <span class="loginTitle">用户登录</span>
       </div>
       <div class="input">
@@ -27,7 +67,7 @@
       </div>
       <div class="forgetPassword">
         <div style="cursor:pointer;" @click="findpassword"><span style="color: cornflowerblue">找回密码</span></div>
-    </div>
+    </div>-->
     </div>
   </div>
 </template>
@@ -37,6 +77,17 @@ export default {
   name: 'login',
   data () {
     return {
+      ruleValidate: {
+      },
+      formValidate: {
+        // 登录名
+        loginName: '',
+        // 密码临时值
+        passwordtemp: '',
+        // 登录密码
+        password: ''
+        // 验证码
+      },
       // 登录名
       loginName: '',
       // 密码临时值
@@ -46,11 +97,15 @@ export default {
       // 验证码
       checkCode: '',
       // 是否记住用户名
-      rememberNameFlag: ''
+      rememberNameFlag: false
     }
   },
   methods: {
-    login () {
+    handleReset () {
+      // 或者手动将各个属性置空
+      this.$refs['formValidate'].resetFields()
+    },
+    handlelogin () {
       console.log('用户名', this.loginName, '登录密码', this.password)
     },
     hiden () {
@@ -70,34 +125,37 @@ export default {
 }
 </script>
 
-<style>
+<style lang="less">
   .login{
+    width: 100%;
+    height: 100%;
     background-color:#fff;
-  }
-  .loginTitle{
-    width: 280px;
-    font-size: 18px;
-  }
-  .input{
-    width: 280px;
-    margin-top: 20px;
-  }
-  .checkcode{
-    width: 280px;
-    display: flex;
-    margin-top: 20px;
-    margin-left: 0px;
-  }
-  .forgetPassword{
-    width: 280px;
-    display: flex;
-    margin-top: 5px;
-    margin-left: 230px;
-  }
-  .form{
-    width: 300px;
-    position: relative;
-    left:50px ;
-    top:100px;
+    .title{
+      width: 100%;
+      font-size: 18px;
+    }
+    .input{
+      width: 70%;
+      margin-left: 20px;
+    }
+    .checkcode{
+      width: 280px;
+      display: flex;
+      margin-top: 20px;
+      margin-left: 0px;
+    }
+    .forgetPassword{
+      width: 280px;
+      display: flex;
+      margin-top: 5px;
+      margin-left: 230px;
+    }
+    .form{
+      position: relative;
+      top:100px;
+      width: 100%;
+      height: 70%;
+      background-color: #fff;
+    }
   }
 </style>

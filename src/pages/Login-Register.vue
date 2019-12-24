@@ -23,12 +23,28 @@
       <register class="right" v-show="gologin"></register>
       <login class="right" v-show="!gologin"></login>
     </div> -->
-    <Row style="width: 50%; height: 50%; background: #fff; margin: 0 auto; border-radius: 10px;">
-      <i-col span="16" style="background: red; height: 100%;">
-          左边
+    <Row style="width: 60%; height: 70%; background: #fff; margin: 0 auto; border-radius: 10px;">
+      <i-col span="14" style="height: 100%;">
+        <div class="changemod">
+          <span>已有账号：</span>
+          <div class="change" @click="tosign" v-show="!gologin">
+            立即注册
+            <Icon type="ios-arrow-dropright" size="20" color="#1676f6" style="margin-left: 5px"/>
+          </div>
+          <div class="change" @click="tologin" v-show="gologin">
+            立即登录
+            <Icon type="ios-arrow-dropright" size="20" color="#1676f6" style="margin-left: 5px"/>
+          </div>
+        </div>
+        <div class="insertimage">
+              <img src="../assets/images/login-insert-img.png" style="width: 100%;"/>
+        </div>
       </i-col>
-      <i-col span="8">
-          <login class="right" v-show="!gologin"></login>
+      <i-col span="10" style=" height: 100%;" v-show="!gologin">
+          <login ref="login"  class="right"></login>
+      </i-col>
+      <i-col span="10" style=" height: 100%;" v-show="gologin">
+          <register ref="register" class="right"></register>
       </i-col>
     </Row>
   </div>
@@ -57,16 +73,18 @@ export default {
     tologin () {
       console.log('this.gologin', this.gologin)
       this.gologin = false
+      this.$refs.register.handleReset()
     },
     tosign () {
       console.log('你好')
       this.gologin = true
+      this.$refs.login.handleReset()
     }
   }
 }
 </script>
 
-<style>
+<style lang="less">
   .login-register{
     height: 100%;
     width: 100%;
@@ -74,46 +92,32 @@ export default {
     display: flex;
     align-items: center;
   }
-  .bg2{
-    width: 50%;
-    height: auto;
-    margin: 0 auto;
-    background-color: white;
-    border-radius: 10px;
-  }
-  .left{
-    float: left;
-    height: 500px;
-    width: 500px;
-    background-color: white;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-  }
   .right{
     float: right;
     border-top-right-radius: 10px;
     border-bottom-right-radius: 10px;
   }
   .insertimage{
+    overflow: hidden;
+    margin-left: 105px;
+    margin-top: 110px;
+    height: 80%;
+    width: 60%;
+  }
+  .changemod{
     position: relative;
-    left: 100px;
-    top: 200px;
-    height: 300px;
-    width: 300px;
-    background-image: url("../assets/images/login-insert-img.png");
-    background-size:300px,300px;
-    background-repeat:no-repeat;
+    left: 420px;
+    top: 80px;
+    width: 100px;
+    height: 45px;
   }
   .change{
-    position: relative;
-    top: -180px;
-    left: 350px;
-    width: 150px;
-    height: 70px;
+    width: 100%;
+    height: 60%;
+    font-size: 15px;
+    margin-left: 5px;
+    margin-top: 3px;
+    color: #1676f6;
+    cursor:pointer;
   }
-   .changemod{
-     width: 150px;
-     height: 30px;
-     background-color: white;
-    }
 </style>
