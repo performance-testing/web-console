@@ -1,10 +1,10 @@
-import axios from '@/libs/api.request'
+import axios from './index.js'
 
 // 例如:
 // 基本信息接口
-export const basicInfoService = (req) => {
+export const userInforService = (req) => {
   return axios.request({
-    url: '/basicInfoService',
+    url: '/userInforService',
     method: 'post',
     data: req
   })

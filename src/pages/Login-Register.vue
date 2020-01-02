@@ -30,12 +30,14 @@
       <i-col span="8">
           <login class="right" v-show="!gologin"></login>
       </i-col>
+      <Button @click='tosign'>提交</Button>
     </Row>
   </div>
 </template>
 <script>
 import login from '../components/Login'
 import register from '../components/Register'
+import {userInforService} from '../api/pages.api.js'
 import bgImage from '@/assets/images/login-background-img.jpg'
 
 export default {
@@ -59,7 +61,12 @@ export default {
       this.gologin = false
     },
     tosign () {
-      console.log('你好')
+      userInforService({
+  "account": "",
+  "password": 8
+}).then(res => {
+        console.log(res, 'd登录')
+      })
       this.gologin = true
     }
   }

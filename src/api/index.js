@@ -1,7 +1,9 @@
-import config from '@/config'
+const config =  require('../../config/index.js')
 import axios from 'axios'
 
-const baseURL = process.env.NODE_ENV === 'development' ? config.baseUrl.dev : config.baseUrl.pro
+
+console.log(config)
+const baseURL = process.env.NODE_ENV === 'development' ? config.baseURL.dev : config.baseURL.pro
 
 const service = axios.create({
   baseURL,

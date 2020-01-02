@@ -5,6 +5,10 @@
 const path = require('path')
 
 module.exports = {
+  baseURL: {
+    dev: 'http://rap2api.taobao.org/app/mock/239721/',
+    pro: '/rest/user/'
+  },
   dev: {
 
     // Paths
