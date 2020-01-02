@@ -44,7 +44,8 @@
           <login ref="login"  class="right"></login>
       </i-col>
       <i-col span="10" style=" height: 100%;" v-show="gologin">
-          <register ref="register" class="right"></register>
+          <!--<register ref="register" class="right"></register>-->
+        <signUp ref="register" class="right"></signUp>
       </i-col>
     </Row>
   </div>
@@ -52,12 +53,13 @@
 <script>
 import login from '../components/Login'
 import register from '../components/Register'
+import signUp from '../components/Register2'
 import bgImage from '@/assets/images/login-background-img.jpg'
 
 export default {
   name: 'Login-Register',
   components: {
-    login, register
+    login, register, signUp
   },
   data () {
     return {
